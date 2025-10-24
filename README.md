@@ -1,79 +1,131 @@
-# 🐦 Twitter Financial News — Sentiment Classification using Machine Learning
+# 📰 Twitter Financial News Classification  
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Domain-Finance%20Analytics-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Machine%20Learning-Text%20Classification-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Deployment-Streamlit-orange?style=for-the-badge"/>
+> 🚀 A Deep Learning–powered NLP project that classifies financial tweets into 20 unique market-related categories using CNN, ANN & RNN architectures.  
+> It combines data science, machine learning, and finance to uncover how the world talks about markets on Twitter.
+
+<p align="left"> 
+<img src="https://img.shields.io/badge/Domain-Finance%20Analytics-blue?style=for-the-badge"/> 
+<img src="https://img.shields.io/badge/Machine%20Learning-Text%20Classification-green?style=for-the-badge"/> 
+<img src="https://img.shields.io/badge/Deployment-Streamlit-orange?style=for-the-badge"/> 
 </p>
 
----
+## 📘 Overview  
+The **Twitter Financial News Classification** project focuses on building an intelligent text classification pipeline capable of identifying financial tweet topics such as *Earnings, Analyst Updates, Stock Movement,* and *M&A News.*  
 
-## 🧠 Overview
-This project focuses on **analyzing and classifying financial tweets** from Twitter to uncover market sentiment and key financial topics.  
-By leveraging **Machine Learning (ML)** and **Deep Learning (DL)** models such as **ANN, CNN, and RNN**, the project aims to categorize financial news into various domains like:
+This project leverages **Natural Language Processing (NLP)** and **Deep Learning** to interpret financial content and provide insights that can support traders, analysts, and AI-driven finance applications.  
 
-- 🏦 *Markets, IPOs, Central Banks, Legal Updates, Stock Movement, M&A, and more.*
-
-This project helps **financial analysts, investors, and data enthusiasts** to gain **real-time insights** from financial discussions on social media.
+The model was trained and validated on real-world financial tweets to achieve high accuracy and generalization performance.
 
 ---
 
-## 🎯 Objective
-- Classify finance-related tweets into **20 financial categories** (like Earnings, Dividends, Stock Movement, etc.).
-- Understand how public sentiment on Twitter reflects **market behavior**.
-- Develop and deploy a **deep learning-based classifier** that predicts the topic of any financial tweet.
+## ❓ Problem Statement  
+With millions of finance-related tweets published daily, manual classification is impractical.  
+This project aims to automate the categorization of financial tweets — enabling analysts and systems to:  
+- Monitor breaking financial news efficiently  
+- Detect trends across financial topics  
+- Facilitate automated sentiment and topic analysis in real time  
 
 ---
 
-## 📊 Dataset Information
-**Dataset:** [Twitter Financial News Dataset](https://drive.google.com/drive/folders/1CVYg2mkQ4MYv7ZGbR6V6UmPZDfsyOats?usp=sharing)  
-- 📈 Total Records: 21,107 annotated tweets  
-- 🏷️ 20 Financial Categories:
-  - Analyst Update, Fed | Central Banks, Dividend, Earnings, Legal | Regulation, IPO, Markets, M&A, etc.  
-- 💬 Each tweet is labeled based on its financial domain.
+## 🎯 Key Objectives  
+✅ Preprocess and clean raw Twitter data (remove links, hashtags, punctuation)  
+✅ Perform detailed Exploratory Data Analysis (EDA) to identify distribution and imbalance  
+✅ Extract numerical features using **CountVectorizer** and **Tokenizer**  
+✅ Build and compare **CNN**, **RNN**, and **ANN** architectures  
+✅ Achieve high validation accuracy with deep learning techniques  
+✅ Provide an explainable and scalable text classification pipeline  
 
 ---
 
-## 🧩 Techniques & Methodology
+## 🧾 Dataset Features  
 
-### 🧹 **1. Data Preprocessing**
-- Removed URLs, hashtags, mentions, numbers, and special characters.
-- Converted text to lowercase and applied **lemmatization**.
-- Tokenized text using Keras’ Tokenizer.
-- Handled **class imbalance** using **inverse class weighting**.
+**Dataset:** Twitter Financial News (21,107 English-language finance tweets)  
+**Split:**  
+- `train_data.csv` → 16,990 samples  
+- `valid_data.csv` → 4,117 samples  
 
-### 📊 **2. Exploratory Data Analysis (EDA)**
-- WordCloud visualizations to identify frequent financial terms.
-- Count plots showing label distribution.
-- Observed heavy imbalance — requiring class-weight adjustments.
+Each tweet is annotated into one of **20 financial categories**:  
 
-### ⚙️ **3. Feature Engineering**
-- Text vectorization using **TF-IDF** and **CountVectorizer**.
-- Sequence padding for Deep Learning input consistency.
-
-### 🧠 **4. Model Building**
-| Model | Type | Accuracy | Remarks |
-|--------|-------|----------|----------|
-| Logistic Regression | ML | ~53% | Baseline Model |
-| CNN (1D) | Deep Learning | ~78.9% | Extracted strong contextual features |
-| ANN | Deep Learning | **~83.3%** | Best overall model |
-| RNN | Deep Learning | ~77% | Captured sequential context |
-
-### 🚀 **5. Deployment**
-- Deployed via **Streamlit** for real-time classification.
-- Users can input financial tweets and instantly get the predicted category.
-
----
-
-## 🧰 Tools & Technologies
-| Category | Tools |
-|-----------|--------|
-| **Language** | Python |
-| **Libraries** | pandas, numpy, sklearn, tensorflow, keras, nltk, seaborn, matplotlib, wordcloud, tweepy, streamlit |
-| **Environment** | Jupyter Notebook, VS Code |
-| **Deployment** | Streamlit |
-| **Visualization** | Matplotlib, Seaborn, WordCloud |
+| ID | Label | Category |
+|----|--------|-----------|
+| 0 | LABEL_0 | Analyst Update |
+| 1 | LABEL_1 | Fed / Central Banks |
+| 2 | LABEL_2 | Company / Product News |
+| 3 | LABEL_3 | Treasuries / Corporate Debt |
+| 4 | LABEL_4 | Dividend |
+| 5 | LABEL_5 | Earnings |
+| 6 | LABEL_6 | Energy / Oil |
+| 7 | LABEL_7 | Financials |
+| 8 | LABEL_8 | Currencies |
+| 9 | LABEL_9 | General News / Opinion |
+| 10 | LABEL_10 | Gold / Metals / Materials |
+| 11 | LABEL_11 | IPO |
+| 12 | LABEL_12 | Legal / Regulation |
+| 13 | LABEL_13 | M&A / Investments |
+| 14 | LABEL_14 | Macro |
+| 15 | LABEL_15 | Markets |
+| 16 | LABEL_16 | Politics |
+| 17 | LABEL_17 | Personnel Change |
+| 18 | LABEL_18 | Stock Commentary |
+| 19 | LABEL_19 | Stock Movement |
 
 ---
 
-## 🏗️ Project Structure
+## 📊 Analysis Summary  
+
+🧹 **Data Cleaning:**  
+Removed URLs, hashtags, special characters, and numbers → normalized text using lemmatization & stopword removal.  
+
+📈 **Exploratory Data Analysis (EDA):**  
+- Visualized label imbalance using Seaborn countplots  
+- Generated **WordClouds** for most frequent terms  
+- Mapped 20 financial topics for distribution overview  
+
+🧩 **Feature Engineering:**  
+- Used **CountVectorizer** and **Tokenizer** for numerical representation  
+- Managed class imbalance using inverse class weights  
+
+🧠 **Modeling:**  
+Implemented and compared:
+- **ANN (Feedforward Network)**
+- **CNN (Convolutional Neural Network)**
+- **RNN (SimpleRNN for sequential text data)**  
+
+🏁 **Best Model:**  
+**CNN Model** achieved ~**79% validation accuracy**, outperforming traditional models and demonstrating strong generalization.  
+
+---
+
+## 🧠 Tech Stack  
+
+**Languages & Tools:**  
+> 🐍 Python • 📓 Jupyter Notebook • 💻 VS Code  
+
+**Libraries Used:**  
+- Pandas | NumPy | Matplotlib | Seaborn  
+- NLTK | WordCloud  
+- Scikit-learn | TensorFlow | Keras  
+
+**Core Concepts:**  
+- Natural Language Processing (NLP)  
+- Text Vectorization (CountVectorizer, Tokenizer)  
+- Deep Learning (ANN, CNN, RNN)  
+- Model Training, Validation & Visualization  
+
+---
+
+**Concepts Used:**  
+- NLP preprocessing  
+- Tokenization and Embedding  
+- Deep Learning Architectures (CNN, ANN, RNN)  
+- Multi-class text classification  
+- Model Evaluation & Visualization  
+
+---
+
+## ⚙️ How to Run  
+1. **Clone the repository:**  
+   ```bash
+   git clone https://github.com/your-username/Twitter-Financial-News.git
+   cd Twitter-Financial-News
+
