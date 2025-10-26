@@ -129,3 +129,11 @@ Implemented and compared:
    git clone https://github.com/your-username/Twitter-Financial-News.git
    cd Twitter-Financial-News
 
+---
+
+## 🧠 Author
+
+**Aditya Sharma**  
+_Machine Learning Enthusiast | Data Scientist_
+
+
